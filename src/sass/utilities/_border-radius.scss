@@ -1,0 +1,9 @@
+$-sizes: 50;
+
+@for $i from 1 through $-sizes {
+  $borad: $i * 1px;
+
+  .as-border-radius-#{$i} {
+    border-radius: $borad !important;
+  }
+}

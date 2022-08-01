@@ -1,0 +1,51 @@
+@use '../mixins/font'as *;
+@use '../variables/color'as *;
+@use '../mixins/breakpoint'as *;
+@use '../mixins/border-radius'as *;
+
+.as-card-testimony-v2 {
+  padding: 40px 20px;
+  border-radius: 20px;
+  width: 100%;
+  gap: 32px;
+
+  @include screen(desktop) {
+    padding: 40px;
+    gap: 80px;
+  }
+
+  &__rating {
+    font-family: "NunitoSansBold",
+      sans-serif;
+    font-size: 6.25rem;
+    font-weight: 700;
+    line-height: 9.375rem;
+    color: var(--as-color-blue);
+    margin-bottom: 1.25rem;
+  }
+
+  &__reviews {
+    font-family: "NunitoSansRegular",
+      sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+    color: var(--as-color-blue-dark);
+    margin-bottom: 2.5rem;
+    display: inline-block;
+    text-decoration: underline;
+  }
+
+  &__title {
+    @include font-size('18-bold');
+    line-height: 1.6875rem;
+    color: var(--as-color-secondary);
+    margin-bottom: 24px;
+  }
+
+  &__description {
+    @include font-size('16');
+    line-height: 1.5rem;
+    color: var(--as-color-secondary-2);
+  }
+}

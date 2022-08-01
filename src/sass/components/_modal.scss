@@ -1,0 +1,129 @@
+@use '../variables/color'as *;
+@use '../variables/shadow'as *;
+@use '../variables/shade'as *;
+@use '../mixins/breakpoint'as *;
+
+.as-modal {
+  background: var(--as-shade-80);
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transition: all 0.3s;
+  transition: opacity 500ms;
+  visibility: hidden;
+  z-index: 999;
+  padding-inline: 1rem;
+  overflow: auto;
+
+  &:target,
+  &--visible {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  &__close {
+    background: 0 0;
+    border-radius: 2rem;
+    border: none;
+    color: var(--as-color-border);
+    cursor: pointer;
+    height: 1rem;
+    position: absolute;
+    right: 36px;
+    text-align: center;
+    text-decoration: none;
+    top: 36px;
+    width: 1rem;
+  }
+
+  &__dialog {
+    position: relative;
+    width: auto;
+    margin: 0.5rem;
+    pointer-events: none;
+    top: 45%;
+  }
+
+  &__container {
+    background-clip: padding-box;
+    background-color: var(--as-color-white);
+    border-radius: 1rem;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    left: 50%;
+    margin: 1.75rem auto;
+    outline: 0;
+    overflow: auto;
+    pointer-events: auto;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 100%;
+
+    @include screen(desktop) {
+      width: 730px;
+    }
+
+    &--xs {
+      width: 100%;
+
+      @include screen(desktop) {
+        width: 520px;
+      }
+    }
+
+    &--sm {
+      width: 100%;
+
+      @include screen(desktop) {
+        width: 660px;
+      }
+    }
+
+    &--md {
+      width: 100%;
+
+      @include screen(desktop) {
+        width: 910px;
+      }
+    }
+
+    &--lg {
+      width: 100%;
+
+      @include screen(desktop) {
+        width: 960px;
+      }
+    }
+  }
+
+  &__header {
+    padding: 1.5rem 2rem 0 1.5rem;
+  }
+
+  &__section {
+    padding: 1.5rem 2rem;
+
+    &--center {
+      align-items: center;
+      text-align: center;
+    }
+  }
+
+  &__footer {
+    padding: 1.5rem 2rem;
+  }
+
+  button {
+    width: 100%;
+
+    @include screen (desktop) {
+      width: auto;
+    }
+  }
+}

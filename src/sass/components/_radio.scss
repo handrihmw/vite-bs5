@@ -1,0 +1,70 @@
+@use '../mixins/font' as *;
+
+.as-radio {
+  margin: 0.5rem;
+
+  input[type="radio"] {
+    opacity: 0;
+    position: absolute;
+
+    +.as-radio-label {
+      @include font-size('16-semibold');
+      color: var(--as-color-secondary-2);
+
+      &:before {
+        background: var(--as-color-white);
+        border-radius: 2rem;
+        border: 2px solid var(--as-color-secondary-2);
+        content: '';
+        cursor: pointer;
+        display: inline-block;
+        height: 20px;
+        margin-right: 0.875rem;
+        position: relative;
+        text-align: center;
+        transition: all 250ms ease;
+        vertical-align: top;
+        width: 20px;
+      }
+    }
+
+    &:checked {
+      +.as-radio-label {
+        &:before {
+          background-color: var(--as-color-blue);
+          border: 2px solid var(--as-color-blue);
+          box-shadow: inset 0 0 0 2px var(--as-color-white);
+        }
+      }
+    }
+
+    &:focus {
+      +.as-radio-label {
+        &:before {
+          background-color: var(--as-color-blue);
+          border: 2px solid var(--as-color-blue);
+          box-shadow: inset 0 0 0 2px var(--as-color-white);
+          outline: none;
+        }
+      }
+    }
+
+    &:disabled {
+      +.as-radio-label {
+        &:before {
+          background: var(--as-color-secondary-2);
+          box-shadow: inset 0 0 0 2px var(--as-color-soft);
+          border-color: var(--as-color-secondary-2);
+        }
+      }
+    }
+
+    +.as-radio-label {
+      &:empty {
+        &:before {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}

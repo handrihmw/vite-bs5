@@ -1,0 +1,52 @@
+@use '../mixins/font'as *;
+@use '../variables/color'as *;
+@use '../mixins/breakpoint'as *;
+@use '../mixins/border-radius'as *;
+
+.as-card-color {
+  background-color: #fff;
+  box-shadow: 0px 4px 24px rgba(0, 87, 178, 0.08);
+  border-radius: 24px;
+  height: auto;
+  min-height: 260px;
+  padding: 2rem;
+
+  &--lg {
+    height: 460px;
+
+    @include screen(desktop) {
+      height: 430px;
+    }
+  }
+
+  &__icon {
+    aspect-ratio: 1 / 1;
+    height: 42px;
+    margin-bottom: 1rem;
+    width: 42px;
+  }
+
+  &__title {
+    @include font-size('20-bold');
+    margin-bottom: 1rem;
+
+    &--md {
+      @include font-size('18-bold');
+    }
+  }
+
+  &__description {
+    @include font-size('16');
+    color: #535961;
+  }
+
+  &__link {
+    @include font-size('16-bold');
+    color: $as-color-blue;
+    text-decoration: underline;
+
+    &:hover {
+      color: darken($as-color-blue, 15%);
+    }
+  }
+}

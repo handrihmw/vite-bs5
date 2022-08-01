@@ -1,0 +1,47 @@
+@use '../mixins/breakpoint'as *;
+
+.as-border {
+  border: 1px solid var(--as-color-divider);
+
+  &-top {
+    border-top: 1px solid var(--as-color-divider);
+  }
+
+  &-bottom {
+    border-bottom: 1px solid var(--as-color-divider);
+  }
+
+  &-right {
+    border-right: 0;
+
+    @include screen(desktop) {
+      border-right: 1px solid var(--as-color-divider);
+    }
+  }
+
+  &-left {
+    border-left: 0;
+
+    @include screen(desktop) {
+      border-left: 1px solid var(--as-color-divider);
+    }
+  }
+
+  &-dash {
+    border: 1px dashed var(--as-color-divider);
+  }
+
+  &-bold {
+    border: 2px solid var(--as-color-gray-soft);
+  }
+
+  &-miscellaneous {
+    border-color: var(--as-color-miscellaneous);
+  }
+
+  &-color {
+    &-blue {
+      border-color: var(--as-color-blue);
+    }
+  }
+}

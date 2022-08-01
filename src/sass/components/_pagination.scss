@@ -1,0 +1,54 @@
+@use '../mixins/breakpoint'as *;
+@use '../mixins/font'as *;
+@use '../mixins/list'as *;
+
+.as-pagination {
+  @include list-unstyled();
+
+  margin: 0;
+
+  display: flex;
+  gap: 0.875rem;
+
+  &__item {
+    align-items: center;
+    display: flex;
+
+    &--active .as-pagination__button {
+      background: var(--as-color-blue);
+      border: 1px solid var(--as-color-blue);
+      color: var(--as-color-white);
+
+      &:hover {
+        background: var(--as-color-blue-dark);
+        border: 1px solid var(--as-color-blue-dark);
+      }
+    }
+
+    &--disabled .as-pagination__button {
+      color: var(--as-color-divider);
+      pointer-events: none;
+    }
+  }
+
+  &__button {
+    @include font-size("16-semibold");
+
+    align-items: center;
+    background: var(--as-color-white);
+    border: 1px solid var(--as-color-divider);
+    border-radius: 8px;
+    color: var(--as-color-primary);
+    cursor: pointer;
+    display: flex;
+    height: 2.5rem;
+    justify-content: center;
+    padding: 8px 10px;
+    text-align: center;
+    width: 2.5rem;
+
+    &:hover {
+      border: 1px solid var(--as-color-primary);
+    }
+  }
+}

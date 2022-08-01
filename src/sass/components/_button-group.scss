@@ -1,0 +1,106 @@
+@use '../mixins/breakpoint'as *;
+
+.as-btn-group {
+  display: flex;
+  flex-wrap: nowrap;
+  width: fit-content;
+
+  >.as-btn,
+  .as-btn-outline {
+    box-shadow: none;
+    flex: 1 1 auto;
+    position: relative;
+    padding: .8rem 1.25rem;
+
+    @include screen(desktop) {
+      padding: 0.75rem 3.5rem;
+    }
+  }
+
+  >.as-btn--primary {
+    &:hover {
+      background: var(--as-color-orange-hover);
+    }
+
+    &:focus,
+    &:active {
+      border: 1px solid var(--as-color-orange-pressed);
+      background: var(--as-color-orange-pressed);
+    }
+  }
+
+  >.as-btn--secondary {
+    &:hover {
+      background: var(--as-color-blue);
+    }
+
+    &:focus,
+    &:active {
+      border: 1px solid var(--as-color-blue-dark);
+      background: var(--as-color-blue-dark);
+    }
+  }
+
+  >.as-btn-outline {
+    &:hover {
+      background: var(--as-color-blue);
+      color: var(--as-color-white);
+    }
+
+    &:focus,
+    &:active {
+      background: var(--as-color-blue-dark);
+      color: var(--as-color-white);
+    }
+  }
+
+  >.as-btn-outline--primary {
+    &:hover {
+      background: var(--as-color-orange-hover);
+      color: var(--as-color-white);
+    }
+
+    &:focus,
+    &:active {
+      border: 1px solid var(--as-color-orange-pressed);
+      background: var(--as-color-orange-pressed);
+      color: var(--as-color-white);
+    }
+  }
+
+  >.as-btn-outline--secondary {
+    &:hover {
+      background: var(--as-color-blue);
+      color: var(--as-color-white);
+    }
+
+    &:focus,
+    &:active {
+      border: 1px solid var(--as-color-blue-dark);
+      background: var(--as-color-blue-dark);
+      color: var(--as-color-white);
+    }
+  }
+
+  >.as-btn:nth-child(n + 2),
+  >.as-btn-outline:nth-child(n + 2) {
+    border-left: none;
+  }
+
+  >.as-btn:first-child,
+  >.as-btn-outline:first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  >.as-btn:last-child,
+  >.as-btn-outline:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  >.as-btn:not(:first-child):not(:last-child),
+  >.as-btn-outline:not(:first-child):not(:last-child) {
+    border-radius: 0;
+  }
+}

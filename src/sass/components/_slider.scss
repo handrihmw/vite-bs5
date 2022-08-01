@@ -1,0 +1,20 @@
+@use '../mixins/breakpoint'as *;
+
+.as-slider-simple {
+  list-style-type: none;
+  display: flex;
+  gap: 1rem;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @include screen(desktop) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

@@ -1,0 +1,26 @@
+.as-btn-icon {
+  -webkit-box-align: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 0.75rem 2rem;
+  vertical-align: middle;
+  width: max-content;
+
+  &>i:first-child:not(:only-child) {
+    margin-right: 0.875rem;
+  }
+
+  &>span+i {
+    margin-left: 0.875rem;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.as-btn-icon--sm {
+  border-radius: 50%;
+  padding: 0.75rem 0.97rem;
+}

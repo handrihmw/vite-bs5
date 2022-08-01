@@ -1,0 +1,76 @@
+@use '../mixins/font'as *;
+@use '../variables/color'as *;
+@use '../variables/gradient'as *;
+@use '../mixins/breakpoint'as *;
+
+.as-section {
+  padding: 40px 20px;
+  width: 100%;
+
+  @include screen(desktop) {
+    padding: 80px 20px;
+  }
+
+  &-white {
+    background: var(--as-color-white);
+  }
+
+  &-soft {
+    background: var(--as-color-very-soft-blue);
+  }
+
+  &-blue {
+    background: var(--as-color-blue);
+
+    .as-section__title,
+    .as-section__description {
+      color: var(--as-color-white);
+    }
+  }
+
+  &-dark {
+    background: #001168;
+
+    .as-section__title,
+    .as-section__description {
+      color: var(--as-color-white);
+    }
+  }
+
+  &__container {
+    max-width: 69.375rem;
+    margin-inline: auto;
+  }
+
+  &__flex {
+    @include screen(desktop) {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__title {
+    @include font-size('28-bold');
+    line-height: 2.25rem;
+    color: var(--as-color-primary);
+
+    @include screen(desktop) {
+      font-size: 2.5rem;
+      line-height: 3.5rem;
+      letter-spacing: -0.02rem;
+    }
+  }
+
+  &__description {
+    @include font-size('16');
+    line-height: 1.5rem;
+    color: var(--as-color-secondary);
+    letter-spacing: 0.005rem;
+  }
+
+  &__image {
+    img {
+      width: 100%;
+    }
+  }
+}

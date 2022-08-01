@@ -1,0 +1,95 @@
+@use '../mixins/font'as *;
+@use '../variables/color'as *;
+@use '../variables/shadow'as *;
+
+// Button Solid
+.as-btn {
+  @include font-size('16-semibold');
+  line-height: 1.5rem;
+  -webkit-box-align: baseline;
+  align-items: baseline;
+  background: var(--as-color-white);
+  border: 1px solid var(--as-color-border);
+  border-radius: 1.875rem;
+  box-sizing: border-box;
+  color: var(--as-color-primary);
+  display: inline-block;
+  outline: none;
+  padding: 0.75rem 2.5rem;
+  max-height: 3rem;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.1s ease-out 0s, box-shadow 0.15s cubic-bezier(0.47, 0.03, 0.49, 1.38) 0s;
+  white-space: nowrap;
+  width: auto;
+}
+
+// Button Variants
+$button-array: ((danger $as-color-red $as-color-red-hover $as-color-red-pressed $as-color-white $as-shadow-red-1 $as-shadow-red-2),
+  (primary $as-color-orange $as-color-orange-hover $as-color-orange-pressed $as-color-white $as-shadow-orange-1 $as-shadow-orange-2),
+  (secondary $as-color-blue $as-color-blue-dark $as-color-blue-dark $as-color-white $as-shadow-blue-1 $as-shadow-blue-2));
+
+@each $button in $button-array {
+  .as-btn--#{nth($button, 1)} {
+    background: #{nth($button, 2)};
+    border: 1px solid transparent;
+    box-shadow: #{nth($button, 6)};
+    color: #{nth($button, 5)};
+
+    &:hover {
+      background: #{nth($button, 2)};
+      color: #{nth($button, 5)};
+    }
+
+    &:not(.as-btn--no-hover):hover,
+    &:not(.as-btn--no-hover):focus {
+      background: #{nth($button, 3)};
+      color: #{nth($button, 5)};
+    }
+
+    &:not(.as-btn--no-hover):active {
+      background: #{nth($button, 4)};
+      border: 1px solid var(--as-color-white);
+      box-shadow: #{nth($button, 7)};
+    }
+
+    &.as-btn--no-border:hover,
+    &.as-btn--no-border:focus,
+    &.as-btn--no-border:active {
+      border: 1px solid transparent;
+      box-shadow: none;
+    }
+  }
+}
+
+// Button Size
+.as-btn--sm {
+  @include font-size('14-semibold');
+  line-height: 1rem;
+  padding: 0.75rem 1.5rem;
+  max-height: 2.5rem;
+}
+
+.as-btn--lg {
+  @include font-size('20-semibold');
+  line-height: 2rem;
+  padding: 0.75rem 4.5rem;
+  text-align: center;
+  max-height: 3.5rem;
+}
+
+.as-btn--fluid {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+}
+
+// Button State
+.as-btn--disabled {
+  background: var(--as-color-disable-state);
+  box-shadow: none;
+  color: var(--as-color-disable);
+  cursor: unset;
+  pointer-events: none;
+  border: none;
+}

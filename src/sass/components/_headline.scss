@@ -1,0 +1,66 @@
+/* Arunika Headline Center */
+
+@use '../mixins/font'as *;
+@use '../variables/color'as *;
+@use '../variables/gradient'as *;
+@use '../mixins/breakpoint'as *;
+
+.as-headline {
+  &__title {
+    @include font-size('28-bold');
+    line-height: 2.25rem;
+    color: var(--as-color-primary);
+
+    @include screen(desktop) {
+      font-size: 2.5rem;
+      line-height: 3.5rem;
+      letter-spacing: -0.02rem;
+    }
+  }
+
+  &__sub-title {
+    @include font-size('16-bold');
+    line-height: 1.5rem;
+    color: var(--as-color-secondary);
+    letter-spacing: 0.005rem;
+
+
+    @include screen(desktop) {
+      font-size: 1.125rem;
+      letter-spacing: 0.005em;
+      line-height: 1.625rem;
+    }
+  }
+
+  &__description {
+    @include font-size('14');
+
+    @include screen(desktop) {
+      letter-spacing: 0.005em;
+      line-height: 1.5rem;
+    }
+  }
+
+  &__link {
+    color: var(--as-color-blue);
+    @include font-size('14-bold');
+    line-height: normal;
+
+    text-decoration: none;
+
+    &:hover {
+      color: darken(#007aff, 20%);
+      text-decoration: none;
+    }
+
+    @include screen(desktop) {
+      font-size: 1rem;
+      letter-spacing: 0.002em;
+      line-height: 2rem;
+    }
+  }
+
+  &__button {
+    padding: 12px 56px !important;
+  }
+}

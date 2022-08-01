@@ -1,0 +1,95 @@
+@use '../mixins/breakpoint'as *;
+@use '../mixins/border-radius'as *;
+@use '../mixins/font'as *;
+
+.as-nav-card {
+  &__tabs {
+    border: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style: none;
+    margin-bottom: 0;
+    padding-left: 0;
+  }
+
+  &__item {
+    flex: unset;
+    position: relative;
+    width: 100%;
+
+    @include screen(desktop) {
+      width: unset;
+    }
+  }
+
+  &__link {
+    @include font-size('14-semibold');
+    background-color: var(--as-color-soft);
+    border: none;
+    border-radius: 1rem 1rem 0 0;
+    color: var(--as-color-disable);
+    cursor: pointer;
+    display: block;
+    height: 48px;
+    margin: 0;
+    padding: 16px 24px;
+    position: relative;
+    transition: 0.1s ease-in-out;
+    text-decoration: none;
+    text-align: center;
+    top: unset;
+    width: 100%;
+
+    &:hover {
+      color: var(--as-color-secondary);
+    }
+
+    &:not(first-of-type) {
+      border-radius: unset;
+    }
+
+    @include screen(desktop) {
+      top: 14px;
+    }
+
+    @include screen(desktop) {
+      &:not(first-of-type) {
+        border-radius: 1rem 1rem 0 0;
+      }
+
+      width: unset;
+    }
+
+    &.is-active {
+      background-color: var(--as-color-white);
+      color: var(--as-color-primary);
+      height: 62px;
+      padding-top: 1.5rem;
+      position: relative;
+      top: 0;
+
+      &:first-of-type {
+        border-radius: 1rem 1rem 0 0;
+      }
+
+      @include screen(desktop) {
+        &:not(first-of-type) {
+          border-radius: 1rem 1rem 0 0;
+        }
+      }
+    }
+  }
+
+  &__content {
+    background-color: var(--as-color-white);
+    border: none;
+    box-shadow: var(--as-shadow-1);
+    padding: 1.5rem 1rem;
+    @include border-radius(0, 0, 16px, 16px);
+
+    @include screen(desktop) {
+      @include border-radius(0, 16px, 16px, 16px);
+    }
+  }
+}

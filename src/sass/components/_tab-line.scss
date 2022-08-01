@@ -1,0 +1,64 @@
+@use '../mixins/breakpoint'as *;
+@use '../mixins/border-radius'as *;
+@use '../mixins/font'as *;
+
+.as-nav-line {
+  &__tabs {
+    background-color: var(--as-color-white);
+    border-bottom: 1px solid var(--as-color-divider);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style: none;
+    margin-bottom: 0;
+    padding-left: 0;
+  }
+
+  &__item {
+    flex: unset;
+    position: relative;
+  }
+
+  &__link {
+    @include font-size('14');
+    border: none;
+    color: var(--as-color-disable);
+    cursor: pointer;
+    display: block;
+    height: 48px;
+    margin: 0;
+    padding: 16px 24px;
+    position: relative;
+    transition: 0.1s ease-in-out;
+    text-decoration: none;
+    text-align: center;
+
+    &:hover {
+      color: var(--as-color-secondary);
+    }
+
+    &.is-active {
+      @include font-size('14-semibold');
+      color: var(--as-color-primary);
+      position: relative;
+
+      &::before {
+        background: none repeat scroll 0 0 transparent;
+        background: var(--as-color-blue);
+        bottom: -1px;
+        content: "";
+        display: block;
+        height: 1px;
+        left: 0;
+        position: absolute;
+        transition: width 0.2s ease 0s, left 0.4s ease 0s;
+        width: 100%;
+      }
+    }
+  }
+
+  &__content {
+    background-color: var(--as-color-white);
+    padding: 1.5rem 1rem;
+  }
+}

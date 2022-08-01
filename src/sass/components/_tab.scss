@@ -1,0 +1,77 @@
+@use '../variables/shadow'as *;
+@use '../mixins/font'as *;
+@use '../mixins/breakpoint'as *;
+
+.as-nav-tabs {
+  background: var(--as-color-white);
+  border: none;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style: none;
+  margin-bottom: 2.5rem;
+  padding: 8px 6px;
+
+  @include screen(desktop) {
+    background: var(--as-color-soft);
+  }
+
+  &::after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+
+  &__item {
+    flex: 1 1 auto;
+    width: 100%;
+
+    @include screen(desktop) {
+      width: unset;
+    }
+  }
+
+  &__link {
+    @include font-size('16-bold');
+    border: none;
+    border-radius: 2rem;
+    color: var(--as-color-secondary-2);
+    cursor: pointer;
+    display: block;
+    height: 40px;
+    margin: 0 4px;
+    padding: 10px;
+    position: relative;
+    transition: 0.1s ease-in-out;
+    text-decoration: none;
+    text-align: center;
+    background: var(--as-color-soft);
+    border-radius: 2rem;
+    margin-bottom: 1.5rem;
+
+    &:hover {
+      background: var(--as-color-soft);
+      mix-blend-mode: multiply;
+    }
+
+    &.is-active {
+      background-color: var(--as-color-blue);
+      box-shadow: var(--as-shadow-blue-1);
+      color: var(--as-color-white);
+      position: relative;
+      z-index: 1;
+    }
+
+    @include screen(desktop) {
+      background: unset;
+      margin-bottom: unset;
+    }
+  }
+
+  &-content {
+    background-color: var(--as-color-white);
+    border: none;
+    padding: 1.25rem;
+  }
+}

@@ -1,0 +1,49 @@
+@use '../mixins/font'as *;
+@use '../mixins/breakpoint'as *;
+
+.as-breadcrumb {
+  @include font-size('12');
+  align-items: center;
+  background-color: var(--as-color-blue-dark);
+  border-radius: 2rem;
+  color: var(--as-color-white);
+  display: inline-flex;
+  flex-wrap: nowrap;
+  min-height: 32px;
+  padding: 8px 20px;
+  list-style: none;
+  width: auto;
+
+  @include screen(desktop) {
+    @include font-size('18-semibold');
+    min-height: 40px;
+  }
+}
+
+.as-breadcrumb__item {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 85px;
+  white-space: nowrap;
+
+  @include screen(desktop) {
+    text-overflow: unset;
+    width: auto;
+  }
+
+  +.as-breadcrumb__item {
+    padding-left: 1rem;
+
+    &::before {
+      content: url("data:image/svg+xml,%3Csvg fill='none' height='14' viewBox='0 0 8 14' width='8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m7.53974 6.28955-5.66-5.650002c-.09297-.093728-.20357-.168122-.32543-.218891-.12185-.050769-.25256-.076907-.38457-.076907s-.26272.026138-.384579.076907-.23246.125163-.325423.218891c-.186251.187363-.290793.440812-.290793.705002 0 .26418.104542.51764.290793.705l4.950002 5-4.950002 4.94995c-.186251.1874-.290793.4409-.290793.705 0 .2642.104542.5177.290793.705.092614.0945.203059.1697.324935.2212.121875.0515.252757.0783.385067.0788.1323-.0005.26319-.0273.38506-.0788.12188-.0515.23232-.1267.32494-.2212l5.66-5.64995c.1015-.09364.18251-.2073.23792-.33379.05541-.1265.08401-.26311.08401-.40121s-.0286-.27471-.08401-.40121-.13642-.24015-.23792-.33379z' fill='%23fff'/%3E%3C/svg%3E");
+      float: left;
+      padding-right: 1rem;
+      position: relative;
+      top: 2px;
+    }
+  }
+
+  &--active {
+    color: var(--as-color-blue-soft);
+  }
+}

@@ -1,0 +1,96 @@
+@use '../mixins/font'as *;
+@use '../variables/color'as *;
+@use '../variables/shadow'as *;
+
+// Button Outline
+.as-btn-outline {
+  @include font-size('16-semibold');
+  line-height: 1.5rem;
+  -webkit-box-align: baseline;
+  align-items: baseline;
+  background: var(--as-color-white);
+  border: 1px solid var(--as-color-border);
+  border-radius: 1.875rem;
+  box-sizing: border-box;
+  color: var(--as-color-primary);
+  cursor: pointer;
+  display: inline-block;
+  max-height: 3rem;
+  outline: none;
+  padding: 0.75rem 2.5rem;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.1s ease-out 0s, box-shadow 0.15s cubic-bezier(0.47, 0.03, 0.49, 1.38) 0s;
+  white-space: nowrap;
+  width: auto;
+}
+
+// Button Variants
+$button-outline-array: ((danger $as-color-red $as-color-red-hover $as-color-red-pressed $as-shadow-red-2),
+  (primary $as-color-orange $as-color-orange-hover $as-color-orange-pressed $as-shadow-orange-2),
+  (secondary $as-color-blue $as-color-blue-dark $as-color-blue-dark $as-shadow-blue-2));
+
+@each $button-outline in $button-outline-array {
+  .as-btn-outline--#{nth($button-outline, 1)} {
+    @extend %as-btn-outline-helper !optional;
+    background: transparent;
+    border: solid 1px #{nth($button-outline, 2)};
+    color: #{nth($button-outline, 2)};
+
+    &:hover {
+      border: solid 1px #{nth($button-outline, 3)};
+      box-shadow: none;
+      color: #{nth($button-outline, 3)};
+    }
+
+    &:focus,
+    &:active {
+      border: solid 1px #{nth($button-outline, 4)};
+      box-shadow: #{nth($button-outline, 5)};
+      color: #{nth($button-outline, 4)};
+    }
+
+    &.as-btn-outline--no-border:hover,
+    &.as-btn-outline--no-border:focus,
+    &.as-btn-outline--no-border:active {
+      border: solid 1px #{nth($button-outline, 2)};
+      box-shadow: none;
+    }
+  }
+}
+
+// Button Size
+.as-btn-outline--xsm {
+  padding: 12px 18px;
+}
+
+.as-btn-outline--sm {
+  @include font-size('14-semibold');
+  line-height: 1rem;
+  padding: 0.75rem 1.5rem;
+  max-height: 2.5rem;
+}
+
+.as-btn-outline--lg {
+  @include font-size('20-semibold');
+  line-height: 2rem;
+  padding: 0.75rem 4.5rem;
+  text-align: center;
+  max-height: 3.5rem;
+}
+
+.as-btn-outline--fluid {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+}
+
+// Button State
+.as-btn-outline--disabled {
+  background: var(--as-color-white);
+  border: 1px solid var(--as-color-disable);
+  box-shadow: none;
+  color: var(--as-color-disable);
+  cursor: unset;
+  pointer-events: none;
+}

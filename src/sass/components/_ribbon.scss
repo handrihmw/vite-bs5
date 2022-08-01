@@ -1,0 +1,38 @@
+.as-ribbon {
+  font-family: "NunitoSansBold", sans-serif;
+  font-size: 0.75rem;
+  line-height: 0.75rem;
+  font-weight: 700;
+  border-radius: 4px 3px 3px 4px;
+  color: var(--as-color-white);
+  height: 32px;
+  position: relative;
+  padding: 10px 12px;
+
+  &:after {
+    border-bottom: 16px solid transparent;
+    border-top: 16px solid transparent;
+    content: "";
+    margin-right: -14px;
+    margin-top: -10px;
+    position: absolute;
+    right: 0;
+    border-radius: 2px;
+  }
+
+  &--green {
+    background: var(--as-color-green);
+
+    &:after {
+      border-left: 15px solid var(--as-color-green);
+    }
+  }
+
+  &--red {
+    background: var(--as-color-red);
+
+    &:after {
+      border-left: 15px solid var(--as-color-red);
+    }
+  }
+}

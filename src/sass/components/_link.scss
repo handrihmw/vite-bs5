@@ -1,0 +1,68 @@
+@use '../mixins/font'as *;
+@use '../variables/color'as *;
+@use '../variables/shadow'as *;
+
+// Button Text
+.as-link {
+  @include font-size('16-semibold');
+  line-height: 1.5rem;
+  -webkit-box-align: baseline;
+  color: var(--as-color-blue);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: var(--as-color-blue-dark);
+    text-decoration: underline;
+  }
+}
+
+// Button Text Variant
+$as-link-array: ((link transparent $as-color-blue $as-color-gray $as-color-blue-dark $as-color-white $as-color-disable null),
+  (danger transparent $as-color-red $as-color-red-light $as-color-red-dark null null $as-shadow-red-1));
+
+@each $as-link in $as-link-array {
+  .as-link--#{"" + nth($as-link, 1)} {
+    color: #{"" + nth($as-link, 3)};
+
+    &:hover {
+      color: #{"" + nth($as-link, 5)};
+    }
+
+    &:focus,
+    &:active {
+      color: #{"" + nth($as-link, 5)};
+    }
+  }
+}
+
+// Button Size
+.as-link--sm {
+  @include font-size('14-semibold');
+  line-height: 1rem;
+}
+
+.as-link--lg {
+  @include font-size('20-semibold');
+  line-height: 2rem;
+}
+
+// Button State
+.as-link--disabled {
+  color: var(--as-color-disable);
+}
+
+.as-link-icon {
+  display: flex;
+  gap: 0.6875rem;
+  align-items: center;
+}
+
+.as-link--transparent {
+  background: none;
+  border: none;
+}

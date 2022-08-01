@@ -1,0 +1,24 @@
+.as-textarea {
+  border: 1px solid var(--as-color-divider);
+  border-radius: 14px;
+  color: var(--as-color-disable);
+  min-height: 100px;
+  overflow: auto;
+  padding: 0.875rem 1.5rem;
+  text-align: left !important;
+  transition: background-color 0.2s ease 0s;
+  width: 100%;
+
+  &:focus,
+  &:active {
+    color: var(--as-color-primary);
+  }
+
+  &--disable {
+    background-color: var(--as-color-gray-soft);
+    border: 1px solid var(--as-color-border);
+    color: var(--as-color-disable);
+    cursor: unset;
+    pointer-events: none;
+  }
+}

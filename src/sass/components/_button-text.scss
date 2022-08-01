@@ -1,0 +1,82 @@
+@use '../mixins/font'as *;
+@use '../variables/color'as *;
+@use '../variables/shadow'as *;
+
+// Button Text
+.as-btn-text {
+  @include font-size('16-semibold');
+  line-height: 1.5rem;
+  -webkit-box-align: baseline;
+  align-items: baseline;
+  background: var(--as-color-white);
+  border: none;
+  border-radius: 1.875rem;
+  box-sizing: border-box;
+  color: var(--as-color-blue);
+  cursor: pointer;
+  display: inline-block;
+  height: 3rem;
+  outline: none;
+  padding: 0.75rem 2.5rem;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.1s ease-out 0s, box-shadow 0.15s cubic-bezier(0.47, 0.03, 0.49, 1.38) 0s;
+  white-space: nowrap;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: var(--as-color-blue-dark);
+  }
+}
+
+// Button Text Variant
+$button-text-array: ((link transparent $as-color-blue $as-color-gray $as-color-blue-dark $as-color-white $as-color-disable null),
+  (danger transparent $as-color-red $as-color-red-light $as-color-red-dark null null $as-shadow-red-1));
+
+@each $button-text in $button-text-array {
+  .as-btn-text--#{"" + nth($button-text, 1)} {
+    background: #{"" + nth($button-text, 2)};
+    border: 1px solid #{"" + nth($button-text, 2)};
+    color: #{"" + nth($button-text, 3)};
+
+    &:hover {
+      background: #{"" + nth($button-text, 4)};
+      color: #{"" + nth($button-text, 5)};
+      cursor: pointer;
+    }
+
+    &:focus,
+    &:active {
+      background: #{"" + nth($button-text, 6)};
+      border: 1px solid #{"" + nth($button-text, 7)};
+      box-shadow: #{"" + nth($button-text, 8)};
+      color: #{"" + nth($button-text, 5)};
+    }
+  }
+}
+
+// Button Size
+.as-btn-text--sm {
+  @include font-size('14-semibold');
+  line-height: 1rem;
+  padding: 0.75rem 1.5rem;
+  max-height: 2.5rem;
+}
+
+.as-btn-text--lg {
+  @include font-size('20-semibold');
+  line-height: 2rem;
+  padding: 0.75rem 4.5rem;
+  text-align: center;
+  max-height: 3.5rem;
+}
+
+// Button State
+.as-btn-text--disabled {
+  background: var(--as-color-disable-state);
+  box-shadow: none;
+  color: var(--as-color-disable);
+  cursor: unset;
+  pointer-events: none;
+}

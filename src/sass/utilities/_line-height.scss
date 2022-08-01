@@ -1,0 +1,9 @@
+$-sizes: 1500;
+
+@for $i from 1 through $-sizes {
+  $as-lh: $i * 1px;
+
+  .as-lh-#{$i} {
+    line-height: $as-lh !important;
+  }
+}

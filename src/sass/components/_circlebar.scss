@@ -1,0 +1,27 @@
+@use '../mixins/font'as *;
+
+.as-circlebar {
+  height: 100px;
+  position: relative;
+  text-align: center;
+  width: 100px;
+
+  &:after {
+    @include font-size('32-bold');
+    content: attr(data-pct);
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    width: 100%;
+  }
+
+  svg {
+    transform: rotate(-90deg);
+  }
+
+  &__circle {
+    stroke-linecap: round;
+    transition: stroke-dashoffset 1s linear;
+  }
+}

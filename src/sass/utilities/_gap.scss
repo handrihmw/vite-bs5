@@ -1,0 +1,9 @@
+$-gap-sizes: 1500;
+
+@for $i from 1 through $-gap-sizes {
+  $asgap: $i * 1px;
+
+  .as-gap-#{$i} {
+    gap: $asgap !important;
+  }
+}

@@ -1,0 +1,151 @@
+@use '../variables/color'as *;
+@use '../mixins/breakpoint'as *;
+
+.as-rating {
+  display: flex;
+
+  .as-icon-star-outline {
+    color: var(--as-color-yellow-dark);
+  }
+
+
+  &--sm {
+    .as-icon-star-outline {
+      font-size: 1.25rem;
+    }
+  }
+
+  &--md {
+    .as-icon-star-outline {
+      font-size: 1.5rem;
+    }
+  }
+
+  &--lg {
+    .as-icon-star-outline {
+      font-size: 3rem;
+    }
+  }
+
+  &--one {
+    .as-icon-star-outline {
+      &:first-child {
+
+        &::before {
+          content: "\e924";
+        }
+      }
+    }
+
+    &-half {
+      .as-icon-star-outline {
+        &:first-child {
+
+          &::before {
+            content: "\e924";
+          }
+        }
+
+        &:nth-child(2) {
+
+          &::before {
+            content: "\e96b";
+          }
+        }
+      }
+    }
+  }
+
+  &--two {
+    .as-icon-star-outline {
+      &:nth-child(-n+2) {
+        &::before {
+          content: "\e924";
+        }
+      }
+    }
+
+    &-half {
+      .as-icon-star-outline {
+        &:nth-child(-n+2) {
+          &::before {
+            content: "\e924";
+          }
+        }
+
+        &:nth-child(3) {
+
+          &::before {
+            content: "\e96b";
+          }
+        }
+      }
+    }
+  }
+
+  &--three {
+    .as-icon-star-outline {
+      &:nth-child(-n+3) {
+        &::before {
+          content: "\e924";
+        }
+      }
+    }
+
+    &-half {
+      .as-icon-star-outline {
+        &:nth-child(-n+3) {
+          &::before {
+            content: "\e924";
+          }
+        }
+
+        &:nth-child(4) {
+
+          &::before {
+            content: "\e96b";
+          }
+        }
+      }
+    }
+  }
+
+  &--four {
+    .as-icon-star-outline {
+      &:nth-child(-n+4) {
+        &::before {
+          content: "\e924";
+        }
+      }
+    }
+
+    &-half {
+      .as-icon-star-outline {
+        &:nth-child(-n+4) {
+          &::before {
+            content: "\e924";
+          }
+        }
+
+        &:last-child {
+
+          &::before {
+            content: "\e96b";
+          }
+        }
+      }
+    }
+  }
+
+  &--five {
+    .as-icon-star-outline {
+      &::before {
+        content: "\e924";
+      }
+    }
+  }
+
+  &--center {
+    justify-content: center;
+  }
+}

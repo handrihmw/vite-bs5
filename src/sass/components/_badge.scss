@@ -1,0 +1,80 @@
+@use '../mixins/font'as *;
+@use '../mixins/breakpoint'as *;
+
+.as-badge {
+  @include font-size('12-semibold');
+  border-radius: 4px;
+  line-height: 1.5rem;
+  margin: 0;
+  padding: 4px 8px;
+  text-align: center;
+  text-transform: capitalize;
+
+  &--black {
+    background: var(--as-shade-80);
+    color: var(--as-color-white);
+  }
+
+  &--blue {
+    background: var(--as-color-blue);
+    color: var(--as-color-white);
+  }
+
+  &--light {
+    background: var(--as-color-blue-light);
+    color: var(--as-color-blue-dark);
+  }
+
+  &--soft {
+    background: var(--as-color-very-soft-blue);
+    color: var(--as-color-black);
+  }
+
+  &--orange {
+    background: var(--as-color-orange-light);
+    color: var(--as-color-orange-dark);
+  }
+
+  &--yellow {
+    background: var(--as-color-yellow-light);
+    color: var(--as-color-yellow-dark);
+  }
+
+  &--green {
+    background: var(--as-color-green-light);
+    color: var(--as-color-green-dark);
+  }
+
+  &--red {
+    background: var(--as-color-red-light);
+    color: var(--as-color-red-dark);
+  }
+
+  &--rounded {
+    border-radius: 1rem;
+  }
+
+  &--md {
+    @include font-size('14-semibold');
+  }
+
+  &--sm {
+    padding: 4px 8px;
+    line-height: unset;
+  }
+
+  &--disabled {
+    background: var(--as-color-disable-state);
+    color: var(--as-color-disable);
+  }
+
+  &--icon {
+    -webkit-box-align: center;
+    align-items: center;
+    display: flex;
+    gap: 9.45px;
+    justify-content: center;
+    vertical-align: middle;
+    width: max-content;
+  }
+}

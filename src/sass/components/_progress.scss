@@ -1,0 +1,20 @@
+.as-progress {
+  background-color: var(--as-color-gray-soft);
+  border-radius: 2rem;
+  display: flex;
+  height: 0.75rem;
+  overflow: hidden;
+
+  &-bar {
+    background-color: var(--as-color-green);
+    border-radius: 2rem;
+    color: var(--as-color-white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    text-align: center;
+    transition: width 0.6s ease;
+    white-space: nowrap;
+  }
+}

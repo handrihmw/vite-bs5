@@ -1,0 +1,69 @@
+@use '../mixins/font'as *;
+@use '../variables/color'as *;
+@use '../mixins/breakpoint'as *;
+
+.as-banner-solid {
+  background-color: $as-color-blue-dark;
+  color: $as-color-white;
+  border-radius: 1.25rem;
+  padding: 20px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+
+  @include screen(desktop) {
+    flex-direction: row;
+    height: 95px;
+    padding-block: unset;
+    padding-inline: 1.125rem;
+    gap: 1.5rem;
+  }
+
+  &__image {
+    height: 100%;
+    width: 50%;
+
+    @include screen(desktop) {
+      width: fit-content;
+    }
+  }
+
+  &__content {
+    @include screen(desktop) {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+  }
+
+  &__title {
+    font-family: "NunitoSansBold",
+      sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.5rem;
+    margin-bottom: .3rem;
+    white-space: nowrap;
+
+    @include screen(desktop) {
+      font-size: 1.5rem;
+      line-height: 1.758125em;
+      margin-bottom: unset;
+    }
+  }
+
+  &__description {
+    font-family: "NunitoSansRegular",
+      sans-serif;
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+    margin-bottom: 1.5rem;
+
+    @include screen(desktop) {
+      font-size: 0.875rem;
+      line-height: 1.625rem;
+      margin-bottom: unset;
+    }
+  }
+}

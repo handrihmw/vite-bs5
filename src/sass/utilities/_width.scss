@@ -1,0 +1,17 @@
+$-width-sizes: 1500;
+
+@for $i from 1 through $-width-sizes {
+  $aswidth: $i * 1px;
+
+  .as-width-#{$i} {
+    width: $aswidth !important;
+  }
+
+  .as-max-width-#{$i} {
+    max-width: $aswidth !important;
+  }
+
+  .as-min-width-#{$i} {
+    min-width: $aswidth !important;
+  }
+}

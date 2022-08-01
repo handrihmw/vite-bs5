@@ -1,0 +1,51 @@
+@use '../mixins/breakpoint'as *;
+
+.as-accordion-soft {
+  margin-bottom: 1.25rem;
+
+  &__header {
+    align-items: center;
+    background: var(--as-color-soft);
+    border-radius: 16px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 1.25em;
+
+    &--open {
+      border-radius: 16px 16px 0 0;
+      padding-bottom: 1.125rem;
+    }
+  }
+
+  &__body {
+    background: var(--as-color-soft);
+    border-radius: 0 0 16px 16px;
+    padding-inline: 1.25rem;
+  }
+
+  &__content {
+    border-top: 1px solid var(--as-color-divider);
+    padding-top: 1.125rem;
+    padding-bottom: 1.5rem;
+  }
+}
+
+@include screen(desktop) {
+  .as-accordion-soft__header {
+    padding: 2rem;
+
+    &--open {
+      padding-bottom: 1.5rem;
+    }
+  }
+
+  .as-accordion-soft__body {
+    padding-inline: 2rem;
+  }
+
+  .as-accordion-soft__content {
+    padding-top: 1.5rem;
+    padding-bottom: 2rem;
+  }
+}

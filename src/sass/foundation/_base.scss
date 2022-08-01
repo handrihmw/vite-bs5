@@ -1,0 +1,49 @@
+body {
+  background-color: var(--as-color-white);
+  box-sizing: border-box;
+  color: var(--as-color-primary);
+  font-family: var(--as-font-regular);
+  font-size: 1rem;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@import 'bootstrap';
+
+a,
+a:hover,
+a:focus {
+  color: inherit;
+  outline: none;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+p,
+hr,
+a,
+span,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  hyphens: auto;
+  margin: 0;
+  overflow-wrap: break-word;
+  padding: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}

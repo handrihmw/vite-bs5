@@ -1,0 +1,91 @@
+@use '../mixins/font'as *;
+@use '../variables/color'as *;
+@use '../variables/shadow'as *;
+
+// Button Outline
+.as-btn-filter {
+  @include font-size('16-semibold');
+  -webkit-box-align: baseline;
+  align-items: baseline;
+  background: var(--as-color-white);
+  border: 1px solid var(--as-color-border);
+  border-radius: 1.875rem;
+  box-sizing: border-box;
+  color: var(--as-color-primary);
+  cursor: pointer;
+  display: inline-block;
+  height: 3rem;
+  outline: none;
+  padding: 0.75rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.1s ease-out 0s, box-shadow 0.15s cubic-bezier(0.47, 0.03, 0.49, 1.38) 0s;
+  white-space: nowrap;
+  width: auto;
+
+  &:focus,
+  &:active {
+    box-shadow: none;
+    background: var(--as-color-blue);
+    color: var(--as-color-white)
+  }
+}
+
+// Button Size
+.as-btn-filter--xsm {
+  padding: 12px 18px;
+}
+
+.as-btn-filter--sm {
+  @include font-size('14-semibold');
+  height: 2.5rem;
+  padding: 0.7rem 2.5rem;
+}
+
+.as-btn-filter--lg {
+  @include font-size('18-semibold');
+  height: 3rem;
+  padding: 0.5rem 4.5rem;
+}
+
+.as-btn-filter--fluid {
+  display: block;
+  width: 100%;
+}
+
+// Button State
+.as-btn-filter--disabled {
+  background: var(--as-color-white);
+  border: 1px solid var(--as-color-disable);
+  box-shadow: none;
+  color: var(--as-color-disable);
+  cursor: unset;
+  pointer-events: none;
+}
+
+.as-btn-icon {
+  -webkit-box-align: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 0.75rem 1rem;
+  vertical-align: middle;
+  width: max-content;
+
+  &>i:first-child:not(:only-child) {
+    margin-right: 0.875rem;
+  }
+
+  &>span+i {
+    margin-left: 0.875rem;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.as-btn-icon--sm {
+  border-radius: 50%;
+  padding: 0.75rem 0.97rem;
+}

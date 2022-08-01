@@ -1,0 +1,345 @@
+@use '../mixins/breakpoint'as *;
+@use '../mixins/border-radius'as *;
+
+.as-card {
+  background: var(--as-color-white);
+  border: none;
+  border-radius: 1rem;
+  box-shadow: var(--as-shadow-1);
+  height: auto;
+  padding: 0;
+  position: relative;
+  transition: background 0.1s ease-out 0s, box-shadow 0.15s cubic-bezier(0.47, 0.03, 0.49, 1.38) 0s;
+  width: auto;
+  word-wrap: break-word;
+
+  @include screen(desktop) {
+    margin-bottom: 0;
+  }
+
+  &__header {
+    border-bottom: 1px solid var(--as-color-divider);
+    padding: 2rem 1.5rem;
+
+    &--sm {
+      padding-bottom: 1rem;
+    }
+
+    &--md {
+      padding-bottom: 1.5rem;
+    }
+
+    &--service {
+      padding-inline: 0;
+      padding-top: .625rem;
+      padding-bottom: .5rem;
+    }
+  }
+
+  &__container {
+    flex: 1 1 auto;
+    padding: 1.75rem 1.5rem;
+
+    &--thumb {
+      position: relative;
+      padding: 0;
+    }
+
+    &--flex {
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    &--border {
+      @include border-radius(0, 0, 8px, 8px);
+      border: 1px solid var(--as-color-divider);
+      border-top: none;
+      padding: 1.25rem;
+
+      &:hover {
+        background: var(--as-color-soft);
+        border: 1px solid var(--as-color-blue);
+        border-top: none;
+      }
+    }
+
+    &--xsm {
+      padding: .75rem;
+    }
+
+    &--sm {
+      padding: 1rem;
+    }
+
+    &--md {
+      padding: 1.25rem;
+    }
+
+    &--lg {
+      padding: 1.5rem;
+    }
+
+    &--xlg {
+      padding: 2rem;
+    }
+
+    &--xxlg {
+      padding: 2.5rem;
+    }
+
+    &--full-col {
+      padding: 2rem 1.5rem 3rem 1.5rem;
+    }
+
+    &--service {
+      padding-inline: 0;
+      padding-bottom: .625rem;
+      padding-top: .5rem;
+    }
+
+    &--benchmark {
+      padding: 0.75rem 1.5rem;
+    }
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+
+    &--md {
+      width: 50%;
+    }
+
+    &--lg {
+      width: 70%;
+    }
+
+    &--flex {
+      align-items: center;
+      flex-direction: row;
+    }
+
+    &--center {
+      align-items: center;
+      text-align: center;
+    }
+
+    &--top {
+      border-top: 1px solid var(--as-color-divider);
+    }
+
+    &--bottom {
+      border-bottom: 1px solid var(--as-color-divider);
+    }
+
+    &--left {
+      border-left: 1px solid var(--as-color-divider);
+    }
+  }
+
+  &__footer {
+    padding-bottom: 1.25rem;
+    padding-inline: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  &__image {
+    image-rendering: auto;
+    height: auto;
+    max-width: 100%;
+    object-fit: cover;
+
+    &--top {
+      @include border-radius(8px, 8px, 0, 0);
+      object-fit: fill;
+    }
+
+    &--theme {
+      height: 144px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    &--purchased {
+      height: 180px;
+      object-fit: cover;
+    }
+
+    &--installed {
+      height: 228px;
+      object-fit: cover;
+    }
+  }
+
+  &__overlay {
+    background: linear-gradient(90deg, #29384e 0%, rgba(41, 56, 78, 0.6) 51.56%, rgba(41, 56, 78, 0) 100%);
+    border-radius: 1rem;
+    position: absolute;
+    width: 100%;
+    transition: all 0.3s ease-out;
+  }
+
+  &--label {
+    bottom: 0;
+    margin: 12px;
+    position: absolute;
+  }
+
+  &--play {
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 40%;
+    text-align: center;
+  }
+
+  &--white {
+    background: var(--as-color-white);
+    border: 2px solid transparent;
+    box-shadow: var(--as-shadow-1);
+
+    &:hover,
+    &:focus,
+    &:active {
+      background: var(--as-color-soft);
+      border: 2px solid var(--as-color-soft);
+      box-shadow: var(--as-shadow-2);
+    }
+  }
+
+  &--blue {
+    background: var(--as-color-blue);
+    border: 2px dashed var(--as-color-blue);
+    color: var(--as-color-white);
+
+    &:hover,
+    &:focus {
+      background: var(--as-color-blue);
+      border: 2px dashed var(--as-color-blue);
+      color: var(--as-color-white);
+    }
+  }
+
+  &--gray {
+    background: var(--as-color-gray-soft);
+    border-radius: 8px;
+    box-shadow: none;
+  }
+
+  &--soft {
+    background: var(--as-color-soft);
+    border: 2px dashed var(--as-color-soft);
+
+    &-no-shadow {
+      background: var(--as-color-soft);
+      border: 2px dashed var(--as-color-soft);
+      box-shadow: none;
+    }
+  }
+
+  &--border {
+    background: var(--as-color-white);
+    border: 1px solid var(--as-color-divider);
+    border-radius: 8px;
+    overflow: hidden;
+
+    &:hover,
+    &:focus {
+      background: var(--as-color-soft);
+      border: 1px solid var(--as-color-blue);
+    }
+
+    &:active {
+      background: var(--as-color-soft);
+      border: 2px solid var(--as-color-blue-light);
+    }
+
+    &-no-shadow {
+      background: var(--as-color-white);
+      border: 1px solid var(--as-color-divider);
+      box-shadow: none;
+    }
+
+    &-soft {
+      border: 1px solid var(--as-color-gray-soft);
+    }
+  }
+
+  &--icon {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    text-align: center;
+  }
+
+  &--dashed {
+    background: var(--as-color-soft);
+    border: 2px dashed var(--as-color-blue-light);
+
+    &:hover,
+    &:focus {
+      background: var(--as-color-soft);
+      border: 2px dashed var(--as-color-blue-light);
+    }
+  }
+
+  &--center {
+    align-items: center;
+    text-align: center;
+  }
+
+  &--disabled {
+    filter: var(--as-color-gray-soft);
+    -webkit-filter: grayscale(1);
+    -webkit-transition: all 0.3s;
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  &--background {
+    background-position: right;
+    background-repeat: no-repeat;
+
+    &-cpanel {
+      background-image: url('../../images/banner/Illustration-cpanel.svg');
+    }
+
+    &-ssl {
+      background-image: url('../../images/banner/Illustration-ssl.svg');
+    }
+
+    &-cms {
+      background-image: url('../../images/banner/Illustration-cms.svg');
+    }
+
+    &-xray {
+      background-image: url('../../images/banner/Illustration-xray.svg');
+    }
+
+    &-full {
+      background-image: url('../../images/banner/Illustration-full.svg');
+      background-position: center;
+    }
+  }
+
+  &--gradient-blue {
+    background: var(--as-gradient-blue);
+    color: var(--as-color-white);
+    box-shadow: var(--as-shadow-blue-1);
+  }
+
+  &--yellow {
+    background: #FFEDB859;
+    color: var(--as-color-primary);
+  }
+
+  &--no-shadow {
+    box-shadow: none;
+  }
+}

@@ -1,0 +1,28 @@
+@use '../variables/shadow' as *;
+
+// Shadows Class
+$shadows: ("black",  $as-shadow-black-1, $as-shadow-black-2, $as-shadow-black-3),
+("orange",  $as-shadow-orange-1, $as-shadow-orange-2, null),
+("red", $as-shadow-red-1, $as-shadow-red-2, null),
+("green", $as-shadow-green-1, $as-shadow-green-2, null),
+("blue", $as-shadow-blue-1, $as-shadow-blue-2, null),
+("illustration", $as-shadow-illustration-1, $as-shadow-illustration-2, null);
+
+@each $shadow in $shadows {
+  .as-shadow-#{nth($shadow,1)},
+  %as-shadow-#{nth($shadow,1)} {
+    &-100 {
+      box-shadow: nth($shadow, 2);
+    }
+
+    &-200 {
+      box-shadow: nth($shadow, 3);
+    }
+
+    @if nth($shadow, 4) != null {
+      &-300 {
+        box-shadow: nth($shadow, 4);
+      }
+    }
+  }
+}
